@@ -5,15 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import buu.informatics.s59160965.aboutme.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("Phitchaya Krobphet")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -24,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             nicknameText.setOnClickListener {
                 updateNickname(it)
             }
+            this.myName = this@MainActivity.myName
         }
     }
 
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-            nicknameText.text = nicknameEdit.text
+            myName?.nickname = nicknameEdit.text.toString()
             nicknameEdit.visibility = View.GONE
             nicknameText.visibility = View.VISIBLE
             doneButton.visibility = View.GONE
