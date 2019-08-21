@@ -41,8 +41,8 @@
                 android:layout_marginTop="@dimen/layout_margin"
                 android:fontFamily="@font/roboto"/>
         <TextView
-                android:id="@={myName.nickname}"
-                android:text=""
+                android:id="@+id/nickname_text"
+                android:text="@={myName.nickname}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/NameStyle"
